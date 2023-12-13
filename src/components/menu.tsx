@@ -1,9 +1,5 @@
-"use client"
-
-import { useCallback, useEffect, useState } from "react"
-import logo from "@/assets/logo.png"
 import { Globe, Mic, Sailboat } from "lucide-react"
-import { WindowTitlebar } from "tauri-controls"
+import { useCallback } from "react"
 
 import {
   Menubar,
@@ -28,20 +24,15 @@ import { Dialog, DialogTrigger } from "./ui/dialog"
 
 export function Menu() {
   const closeWindow = useCallback(async () => {
-    const { appWindow } = await import("@tauri-apps/plugin-window")
-
+    const { appWindow } = await import("@tauri-apps/api/window")
     appWindow.close()
   }, [])
 
   return (
-    <WindowTitlebar
-    // controlsOrder="platform"
-    // windowControlsProps={{ platform: "macos", className: "" }}
-    >
-      <Menubar className="rounded-none border-b border-none pl-2 lg:pl-3">
+      <Menubar className="pl-2 border-b border-none rounded-none lg:pl-3">
         <MenubarMenu>
-          <div className="inline-flex h-fit w-fit items-center text-cyan-500">
-            <Sailboat className="h-5 w-5" />
+          <div className="inline-flex items-center h-fit w-fit text-cyan-500">
+            <Sailboat className="w-5 h-5" />
           </div>
         </MenubarMenu>
 
@@ -161,13 +152,13 @@ export function Menu() {
             <MenubarItem>
               Smart Dictation...{" "}
               <MenubarShortcut>
-                <Mic className="h-4 w-4" />
+                <Mic className="w-4 h-4" />
               </MenubarShortcut>
             </MenubarItem>
             <MenubarItem>
               Emoji & Symbols{" "}
               <MenubarShortcut>
-                <Globe className="h-4 w-4" />
+                <Globe className="w-4 h-4" />
               </MenubarShortcut>
             </MenubarItem>
           </MenubarContent>
@@ -207,6 +198,5 @@ export function Menu() {
 
         <MenuModeToggle />
       </Menubar>
-    </WindowTitlebar>
   )
 }

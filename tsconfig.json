@@ -1,26 +1,34 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "skipLibCheck": true,
+    
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "bundler",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@tauri-apps/api/primitives": [
-        "./node_modules/@tauri-apps/api/types/primitives.d.ts"
-      ]
+      // used for tauri 2.0 alpha release since invoke is moved from 
+      // "@tauri-apps/api/tauri":  to "@tauri-apps/api/primitives"
+      // "@tauri-apps/api/primitives": [
+      //   "./node_modules/@tauri-apps/api/types/primitives.d.ts"
+      // ]
     },
     "typeRoots": ["node_modules/@types", "src/@types"]
   },

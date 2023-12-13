@@ -5,7 +5,7 @@ import { RecentSales } from "@/dashboard/components/recent-sales"
 import { Search } from "@/dashboard/components/search"
 import TeamSwitcher from "@/dashboard/components/team-switcher"
 import { UserNav } from "@/dashboard/components/user-nav"
-import { invoke } from "@tauri-apps/api/primitives"
+import { invoke } from "@tauri-apps/api"
 
 import { Button } from "@/components/ui/button"
 import {

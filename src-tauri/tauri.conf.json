@@ -1,81 +1,55 @@
 {
   "build": {
-    "beforeDevCommand": "npm run dev",
-    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "pnpm dev",
+    "beforeBuildCommand": "pnpm build",
     "devPath": "http://localhost:1420",
-    "distDir": "../dist",
-    "withGlobalTauri": false
+    "distDir": "../dist"
   },
   "package": {
-    "productName": "got"
+    "productName": "gotbackup",
+    "version": "0.0.1"
   },
   "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      },
+      "os": {
+        "all": true
+      },
+      "dialog": {
+        "all": false,
+        "open": true
+      },
+      "window": {
+        "show": true,
+        "hide": true
+      }
+    },
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
-      "copyright": "",
-      "deb": {
-        "depends": []
-      },
-      "externalBin": [],
+      "targets": "all",
+      "identifier": "com.gotbackup.app",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
         "icons/128x128@2x.png",
         "icons/icon.icns",
         "icons/icon.ico"
-      ],
-      "identifier": "com.yourname.dev",
-      "longDescription": "",
-      "macOS": {
-        "entitlements": null,
-        "exceptionDomain": "",
-        "frameworks": [],
-        "providerShortName": null,
-        "signingIdentity": null
-      },
-      "resources": [],
-      "shortDescription": "",
-      "targets": "all",
-      "windows": {
-        "certificateThumbprint": null,
-        "digestAlgorithm": "sha256",
-        "timestampUrl": "",
-        "nsis": {
-          "installerIcon": "./icons/icon.ico"
-        }
-      }
+      ]
     },
     "security": {
-      "csp": null,
-      "dangerousRemoteDomainIpcAccess": [
-        {
-          "scheme": "https",
-          "domain": "tauri.localhost",
-          "windows": [
-            "main"
-          ],
-          "plugins": [
-            "app",
-            "os",
-            "shell",
-            "window",
-            "event",
-            "dialog"
-          ]
-        }
-      ]
+      "csp": null
     },
     "windows": [
       {
         "fullscreen": false,
-        "title": "got",
-        "center": true,
         "resizable": true,
-        "decorations": false,
-        "transparent": true,
-        "height": 920,
-        "width": 1300
+        "title": "gotbackup",
+        "width": 800,
+        "height": 600
       }
     ]
   }
